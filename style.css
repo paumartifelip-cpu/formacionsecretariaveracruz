@@ -1128,6 +1128,34 @@ a {
         padding: 4rem 1.5rem;
     }
 
+    /* Centering & Alignment Fixes */
+    .section-title.align-left,
+    .outcomes {
+        text-align: center !important;
+    }
+
+    .features-list li {
+        justify-content: center;
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .bio-content p {
+        text-align: center;
+    }
+
+    .bio-social-links {
+        justify-content: center;
+    }
+
+    .day-header {
+        text-align: center;
+    }
+
+    .advanced-tools h3 {
+        font-size: 1.5rem;
+    }
+
     .testimonials-grid {
         grid-template-rows: repeat(3, auto);
         grid-auto-columns: 200px;
@@ -1141,6 +1169,7 @@ a {
     }
 
     .testimonial-content p {
+        font-weight: 400;
         font-size: 0.85rem;
         margin-bottom: 1rem;
     }
