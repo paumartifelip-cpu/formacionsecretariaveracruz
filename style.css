@@ -550,6 +550,7 @@ a {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
     font-weight: 500;
+    color: #ffffff;
 }
 
 .icon-box {
@@ -698,8 +699,8 @@ a {
 }
 
 .bio-avatar {
-    width: 120px;
-    height: 120px;
+    width: 280px;
+    height: 280px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
