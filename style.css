@@ -739,9 +739,9 @@ a {
 }
 
 .bio-content p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -769,49 +769,46 @@ a {
     }
 }
 
-/* --- TESTIMONIOS (INFINITY HORIZONTAL MARQUEE) --- */
+/* --- TESTIMONIOS (AUTOSCROLL + MANUAL) --- */
 .testimonials {
     background-color: var(--apple-gray);
 }
 
 .testimonials-container {
-    overflow: hidden;
+    overflow-x: auto;
     position: relative;
-    padding: 2rem 0;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 2rem 0 3rem;
+    /* Extra padding for scroll space */
+    scroll-behavior: auto;
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.testimonials-container:active {
+    cursor: grabbing;
+}
+
+.testimonials-container::-webkit-scrollbar {
+    display: none;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
-    grid-auto-columns: 380px;
-    gap: 1.5rem;
+    grid-auto-columns: 280px;
+    gap: 1.25rem;
     width: max-content;
-    animation: testimonials-scroll 60s linear infinite;
     padding: 1rem;
-}
-
-.testimonials-grid:hover {
-    animation-play-state: paused;
-}
-
-@keyframes testimonials-scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-50% - 0.75rem));
-    }
 }
 
 .testimonial-card {
     background: var(--bg-white);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.03);
@@ -822,8 +819,8 @@ a {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .highlight-card {
