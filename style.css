@@ -1065,50 +1065,78 @@ a {
         transform: translateX(calc(-50% - 1.5rem));
     }
 }
+
 /* --- GLOBAL MOBILE ADJUSTMENTS --- */
 @media (max-width: 768px) {
     .section-padding {
         padding: 4rem 0;
     }
-    
+
     .hero-highlights {
         gap: 1rem;
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .highlight-item {
         justify-content: center;
         width: 100%;
     }
-    
+
     .features-list li {
         font-size: 1.1rem;
         gap: 1rem;
     }
-    
+
     .conditions {
         padding: 2rem 1.5rem;
     }
-    
+
     .timeline {
         padding-left: 1.5rem;
     }
-    
+
     .day-column {
         padding-bottom: 2rem;
     }
-    
+
     .pricing-card {
         padding: 2rem 1.5rem;
     }
-    
+
     .hero h1 {
         font-size: 2.5rem;
         margin-top: 2rem;
     }
-    
+
     .closing {
         padding: 4rem 1.5rem;
+    }
+
+    .testimonials-grid {
+        grid-auto-columns: 220px;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .testimonial-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .testimonial-author {
+        gap: 0.75rem;
+        padding-top: 0.75rem;
+    }
+
+    .author-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
     }
 }
