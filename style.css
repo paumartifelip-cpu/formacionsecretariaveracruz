@@ -699,18 +699,28 @@ a {
 }
 
 .bio-avatar {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bio-avatar:hover {
+    transform: translateY(-10px);
 }
 
 .bio-name h3 {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     margin-bottom: 0.25rem;
 }
 
@@ -725,26 +735,60 @@ a {
     font-weight: 600;
 }
 
-/* --- TESTIMONIOS (MASONRY GRID) --- */
+/* --- ANIMACIONES ADICIONALES --- */
+.floating {
+    animation: float-anim 4s ease-in-out infinite;
+}
+
+@keyframes float-anim {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* --- TESTIMONIOS (INFINITY HORIZONTAL MARQUEE) --- */
 .testimonials {
     background-color: var(--apple-gray);
 }
 
-.testimonials-grid {
-    column-count: 1;
-    column-gap: 2rem;
+.testimonials-container {
+    overflow: hidden;
+    position: relative;
     padding: 2rem 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-@media (min-width: 640px) {
-    .testimonials-grid {
-        column-count: 2;
+.testimonials-grid {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: 380px;
+    gap: 1.5rem;
+    width: max-content;
+    animation: testimonials-scroll 60s linear infinite;
+    padding: 1rem;
+}
+
+.testimonials-grid:hover {
+    animation-play-state: paused;
+}
+
+@keyframes testimonials-scroll {
+    0% {
+        transform: translateX(0);
     }
-}
 
-@media (min-width: 1024px) {
-    .testimonials-grid {
-        column-count: 3;
+    100% {
+        transform: translateX(calc(-50% - 0.75rem));
     }
 }
 
@@ -752,19 +796,19 @@ a {
     background: var(--bg-white);
     border-radius: 20px;
     padding: 2rem;
-    margin-bottom: 2rem;
-    break-inside: avoid;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    display: inline-block;
-    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .highlight-card {
