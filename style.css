@@ -788,6 +788,14 @@ a {
         padding: 2rem;
     }
 
+    .bio-card.image-card {
+        aspect-ratio: 1/1;
+        min-height: auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
     .bio-name-tag {
         bottom: 1rem;
         left: 1rem;
